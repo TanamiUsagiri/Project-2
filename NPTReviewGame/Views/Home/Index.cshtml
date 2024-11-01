@@ -1,0 +1,197 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard - Trang Quản Lý</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="dashboard.css">
+    </head>
+    <body>
+        <!-- Sidebar -->
+        <div class="d-flex">
+            <nav class="bg-dark sidebar">
+                <div class="sidebar-sticky">
+                    <h3 class="text-white text-center py-3">Admin Dashboard</h3>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#games">Quản lý Game</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#users">Quản lý Người dùng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#reviews">Quản lý Đánh giá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#categories">Quản lý Thể loại</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/logout">Đăng Xuất</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <div class="content p-4">
+                <h2>Chào mừng đến với Dashboard!</h2>
+                <p>Quản lý các thông tin về game, người dùng, và đánh giá tại đây.</p>
+
+                <!-- Thống kê tổng quan -->
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <div class="card bg-primary text-white text-center">
+                            <div class="card-body">
+                                <h4>Tổng Game</h4>
+                                <h5 id="totalGames">50</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="card bg-success text-white text-center">
+                            <div class="card-body">
+                                <h4>Tổng Người Dùng</h4>
+                                <h5 id="totalUsers">120</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="card bg-warning text-white text-center">
+                            <div class="card-body">
+                                <h4>Tổng Đánh Giá</h4>
+                                <h5 id="totalReviews">300</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="card bg-danger text-white text-center">
+                            <div class="card-body">
+                                <h4>Tổng Thể Loại</h4>
+                                <h5 id="totalCategories">10</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quản lý các đối tượng -->
+                <section id="games" class="my-4">
+                    <h4>Quản lý Game</h4>
+                    <button class="btn btn-primary mb-3">@Html.ActionLink("Thêm mới game", "Create", "Games", new { area = "" }, new { @class = "nav-link" })</button>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tên Game</th>
+                                <th>Mô tả</th>
+                                <th>Ngày phát hành</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Black Myth Wukong</td>
+                                <td>Hấp dẫn và thú vị</td>
+                                <td>2023-10-01</td>
+                                <td>
+                                    <a href="/game/edit/1" class="btn btn-warning btn-sm">Sửa</a>
+                                    <a href="/game/delete/1" class="btn btn-danger btn-sm">Xóa</a>
+                                </td>
+                            </tr>
+                            <!-- More rows as needed -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Quản lý người dùng -->
+                <section id="users" class="my-4">
+                    <h4>Quản lý Người dùng</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tên Người Dùng</th>
+                                <th>Email</th>
+                                <th>Ngày Tham Gia</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nguyễn Phong Tân</td>
+                                <td>nguyenphongtan2004@gmail.com</td>
+                                <td>2024-01-01</td>
+                                <td>
+                                    <a href="/user/edit/1" class="btn btn-warning btn-sm">Sửa</a>
+                                    <a href="/user/delete/1" class="btn btn-danger btn-sm">Xóa</a>
+                                </td>
+                            </tr>
+                            <!-- More rows as needed -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Quản lý đánh giá -->
+                <section id="reviews" class="my-4">
+                    <h4>Quản lý Đánh giá</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Game</th>
+                                <th>Người dùng</th>
+                                <th>Nội dung Đánh giá</th>
+                                <th>Điểm</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Black myth Wukong</td>
+                                <td>Nguyễn Phong Tân</td>
+                                <td>Rất hay và hấp dẫn</td>
+                                <td>5</td>
+                                <td>
+                                    <a href="/review/delete/1" class="btn btn-danger btn-sm">Xóa</a>
+                                </td>
+                            </tr>
+                            <!-- More rows as needed -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Quản lý thể loại -->
+                <section id="categories" class="my-4">
+                    <h4>Quản lý Thể loại</h4>
+                    <button class="btn btn-primary mb-3">@Html.ActionLink("Thêm thể loại", "Create", "Categories", new { area = "" }, new { @class = "nav-link" })</button>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tên Thể Loại</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hành động</td>
+                                <td>
+                                    <a href="/category/edit/1" class="btn btn-warning btn-sm">Sửa</a>
+                                    <a href="/category/delete/1" class="btn btn-danger btn-sm">Xóa</a>
+                                </td>
+                            </tr><tr>
+                                <td>Kinh dị</td>
+                                <td>
+                                    <a href="/category/edit/1" class="btn btn-warning btn-sm">Sửa</a>
+                                    <a href="/category/delete/1" class="btn btn-danger btn-sm">Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>

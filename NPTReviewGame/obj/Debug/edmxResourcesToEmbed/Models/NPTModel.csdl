@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ReviewGameWebsiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="GameCategories" Relationship="Self.FK__GameCateg__Categ__5DCAEF64" FromRole="Categories" ToRole="GameCategories" />
+  </EntityType>
+  <EntityType Name="GameCategory">
+    <Key>
+      <PropertyRef Name="GameCategoryID" />
+    </Key>
+    <Property Name="GameCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameID" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__GameCateg__Categ__5DCAEF64" FromRole="GameCategories" ToRole="Categories" />
+    <NavigationProperty Name="Game" Relationship="Self.FK__GameCateg__GameI__5CD6CB2B" FromRole="GameCategories" ToRole="Games" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="GameID" />
+    </Key>
+    <Property Name="GameID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
+    <Property Name="Rating" Type="Double" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="GameCategories" Relationship="Self.FK__GameCateg__GameI__5CD6CB2B" FromRole="Games" ToRole="GameCategories" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK__Reviews__GameID__5441852A" FromRole="Games" ToRole="Reviews" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ReviewID" />
+    </Key>
+    <Property Name="ReviewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="ReviewText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rating" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Game" Relationship="Self.FK__Reviews__GameID__5441852A" FromRole="Reviews" ToRole="Games" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Reviews__UserID__5535A963" FromRole="Reviews" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK__Reviews__UserID__5535A963" FromRole="Users" ToRole="Reviews" />
+  </EntityType>
+  <Association Name="FK__GameCateg__Categ__5DCAEF64">
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="GameCategories" Type="Self.GameCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="GameCategories">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GameCateg__GameI__5CD6CB2B">
+    <End Role="Games" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="GameCategories" Type="Self.GameCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameID" />
+      </Principal>
+      <Dependent Role="GameCategories">
+        <PropertyRef Name="GameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reviews__GameID__5441852A">
+    <End Role="Games" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="GameID" />
+      </Principal>
+      <Dependent Role="Reviews">
+        <PropertyRef Name="GameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reviews__UserID__5535A963">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Reviews">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ReviewGameWebsiteEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="GameCategories" EntityType="Self.GameCategory" />
+    <EntitySet Name="Games" EntityType="Self.Game" />
+    <EntitySet Name="Reviews" EntityType="Self.Review" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__GameCateg__Categ__5DCAEF64" Association="Self.FK__GameCateg__Categ__5DCAEF64">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="GameCategories" EntitySet="GameCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GameCateg__GameI__5CD6CB2B" Association="Self.FK__GameCateg__GameI__5CD6CB2B">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="GameCategories" EntitySet="GameCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reviews__GameID__5441852A" Association="Self.FK__Reviews__GameID__5441852A">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="Reviews" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reviews__UserID__5535A963" Association="Self.FK__Reviews__UserID__5535A963">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reviews" EntitySet="Reviews" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

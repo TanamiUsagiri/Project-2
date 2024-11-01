@@ -1,0 +1,58 @@
+﻿@model IEnumerable<NPTReviewGame.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Users</h2>
+
+<button class="btn btn-primary mb-3 text-white bg-light">
+    @Html.ActionLink("Create New", "Create")
+    <</button>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PasswordHash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PasswordHash)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    <button class="btn btn-primary mb-3 text-white bg-light">@Html.ActionLink("Edit", "Edit", new { id = item.UserID })</button> |
+                    <button class="btn btn-primary mb-3 text-white bg-light">@Html.ActionLink("Details", "Details", new { id = item.UserID })</button> |
+                    <button class="btn btn-primary mb-3 text-white bg-light">@Html.ActionLink("Delete", "Delete", new { id = item.UserID })</button>
+                </td>
+            </tr>
+        }
+
+    </table>

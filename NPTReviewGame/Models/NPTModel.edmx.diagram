@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d014bd9a594a41318fef4e112b8dc523" Name="Diagram1">
+        <EntityTypeShape EntityType="ReviewGameWebsiteModel.Category" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReviewGameWebsiteModel.GameCategory" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReviewGameWebsiteModel.Game" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReviewGameWebsiteModel.Review" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReviewGameWebsiteModel.sysdiagram" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReviewGameWebsiteModel.User" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="ReviewGameWebsiteModel.FK__GameCateg__Categ__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="ReviewGameWebsiteModel.FK__GameCateg__GameI__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="ReviewGameWebsiteModel.FK__Reviews__GameID__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ReviewGameWebsiteModel.FK__Reviews__UserID__5535A963" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

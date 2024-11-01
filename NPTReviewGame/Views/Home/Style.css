@@ -1,0 +1,25 @@
+﻿/* Sidebar */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+    .sidebar h3 {
+        font-size: 1.5rem;
+    }
+
+.content {
+    margin-left: 200px;
+}
+
+/* Card Thống Kê */
+.card h4 {
+    font-size: 1.2rem;
+}
+
+.card h5 {
+    font-size: 2rem;
+}
