@@ -1,0 +1,138 @@
+/* Intro Styles */
+.intro-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #0077b6, #90e0ef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    transition: opacity 1s ease-in-out;
+}
+
+.intro-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.start-btn {
+    margin-top: 1rem;
+}
+
+#main-header, #content {
+    padding: 20px;
+    transition: opacity 1s ease-in-out;
+}
+
+#main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0077b6;
+    color: white;
+    padding: 10px 20px;
+}
+
+#main-header nav a {
+    color: white;
+    margin-right: 15px;
+}
+
+#main-header h2 {
+    margin: 0;
+}
+
+.d-none {
+    display: none;
+}
+/* Background video styling */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Nội dung trang ở trên video */
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 80px;
+}
+
+h1, p {
+    margin: 0;
+}
+/* Định dạng chung cho trang */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling cho Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.3); /* Nền trong suốt với độ mờ */
+    backdrop-filter: blur(5px); /* Hiệu ứng mờ nếu trình duyệt hỗ trợ */
+    color: white;
+    z-index: 10;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #f0f0f0;
+}
+
+/* Styling cho Nút trong Navbar */
+.btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white; /* Viền trắng cho nút */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}

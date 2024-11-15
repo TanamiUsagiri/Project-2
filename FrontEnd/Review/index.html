@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Review</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+            <div class="navbar-brand">Game Reviews</div>
+            <ul class="navbar-links">
+                <li><a href="../Home/index.html">Home</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn"><a href="../Login/index.html"></a>Sign In</a></button>
+        </nav>
+    <!-- Phần Đánh Giá Game -->
+    <section class="review-section">
+        <h2>Review a Game</h2>
+        <form class="review-form">
+            <input type="text" placeholder="Game Title" required>
+            <textarea placeholder="Your Review" required></textarea>
+            <input type="number" min="1" max="10" placeholder="Rating (1-10)" required>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+
+    <!-- Danh sách các game đã được đánh giá -->
+    <section class="reviewed-games">
+        <h2>Reviewed Games</h2>
+        <div class="game-list">
+            <!-- Các game đã đánh giá -->
+            <div class="game-item">
+                <h3>Elden Ring</h3>
+                <p>Rating: 8/10</p>
+                <p>Review: This game is fantastic with amazing graphics!</p>
+            </div>
+            <div class="game-item">
+                <h3>GTA V</h3>
+                <p>Rating: 9/10</p>
+                <p>Review: A very engaging story and excellent gameplay.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần Contact -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Phone: 0913698863</p>
+        <p>Email: nguyenphongtan2004@gmail.com</p>
+    </section>
+
+    <!-- Phần About -->
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>K22CNT3</p>
+        <p>Nguyễn Phong Tân - 2210900123</p>
+        <p>We provide honest and detailed reviews for all the latest games.</p>
+    </section>
+
+</body>
+</html>

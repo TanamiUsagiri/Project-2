@@ -1,0 +1,154 @@
+/* Định dạng chung cho trang */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding: 80px 20px 20px; /* Thêm 80px padding-top để bù cho navbar */
+    background-color: #f0f0f0;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
+}
+
+/* Phần Đánh Giá Game */
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-form input[type="text"],
+.review-form textarea,
+.review-form input[type="number"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+    outline: none;
+}
+
+.review-form button {
+    padding: 12px;
+    font-size: 1em;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-form button:hover {
+    background-color: #555;
+}
+
+/* Danh sách các game đã đánh giá */
+.reviewed-games {
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+.game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.game-item {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.game-item h3 {
+    font-size: 1.4em;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.game-item p {
+    margin: 5px 0;
+}
+
+/* Phần Contact */
+.contact-section p,
+.about-section p {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Phần About */
+.about-section {
+    background-color: #eaeaea;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.3); /* Nền trong suốt với độ mờ */
+    backdrop-filter: blur(5px); /* Hiệu ứng mờ nếu trình duyệt hỗ trợ */
+    color: white;
+    z-index: 10;
+}
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #f0f0f0;
+}
+
+/* Styling cho Nút trong Navbar */
+.btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white; /* Viền trắng cho nút */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}

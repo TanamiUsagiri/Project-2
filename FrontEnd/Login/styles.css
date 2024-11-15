@@ -1,0 +1,69 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Animation */
+@keyframes move-bg {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0077b6, #00b4d8, #90e0ef, #caf0f8);
+    background-size: 200% 200%;
+    animation: move-bg 10s infinite linear;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-title {
+    font-size: 2rem;
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+
+.login-form .form-control {
+    margin-bottom: 15px;
+}
+/* Background video styling */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Nội dung trang ở trên video */
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 80px;
+}
+.login-container a{
+    text-decoration: none;
+    color: white;
+}
